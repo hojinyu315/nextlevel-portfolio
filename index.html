@@ -1261,6 +1261,30 @@
     }
     /* ── 스크롤 구간(hero·metrics): 배경색에 맞춰 글자색이 함께 전환 ── */
     .hero-title { color: var(--dyn-fg); }
+    .hero-title .hl {
+      position: relative;
+      display: inline-block;
+      padding: 0 5px;
+      margin: 0 -3px;
+      color: #111111;
+      z-index: 0;
+    }
+    .hero-title .hl::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 2px;
+      height: 46%;
+      background: #FCD404;
+      border-radius: 3px;
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: hl-sweep 0.7s cubic-bezier(.22,1,.36,1) 0.9s forwards;
+    }
+    @keyframes hl-sweep { to { transform: scaleX(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-title .hl::before { animation: none; transform: scaleX(1); }
+    }
     .hero-checks li { color: var(--dyn-fg-dim); }
     .hero-checks li strong { color: var(--dyn-fg); }
     .hero-checks li::before { color: #111111; }
@@ -1549,7 +1573,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <img class="hero-logo" src="nl_logo.png" alt="NEXT LEVEL Studio">
         <span class="hero-pill">콘텐츠 마케터 지원</span>
       </div>
-      <h1 class="hero-title">웹툰 IP로 새 채널을 열고,<br>숏폼으로 키워왔습니다.</h1>
+      <h1 class="hero-title">웹툰 IP로 새 채널을 열고,<br>숏폼 누적 <span class="hl">1억 뷰</span>를 만들었습니다.</h1>
       <div class="hero-divider"></div>
       <ul class="hero-checks">
         <li><strong>신규 채널 개설·운영</strong> — 웹툰 IP 숏폼 채널을 0에서 시작, 4개월간 조회수 <strong>300만 이상 6건</strong></li>
