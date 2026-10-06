@@ -1553,7 +1553,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <div class="hero-divider"></div>
       <ul class="hero-checks">
         <li><strong>신규 채널 개설·운영</strong> — 웹툰 IP 숏폼 채널을 0에서 시작, 4개월간 조회수 <strong>300만 이상 6건</strong></li>
-        <li><strong>채널 기획·발행</strong> — 유튜브·인스타그램 두 채널 합산 주 4편을 8개월간 유지, 숏폼 <strong>100편 이상</strong></li>
+        <li><strong>채널 기획·발행</strong> — 유튜브·인스타그램 두 채널 합산 주 4편 유지, 숏폼 <strong>100편 이상 · 누적 조회수 1억 회</strong></li>
         <li><strong>이미지·영상 제작</strong> — Photoshop 썸네일 전담(누끼·합성·색보정), Premiere Pro·After Effects 편집</li>
         <li><strong>트렌드 리서치·검증</strong> — 밈을 IP 문법으로 재조립해 <strong>435만</strong>, A/B로 CTR <strong>5.7% → 6.0%</strong></li>
       </ul>
@@ -1565,16 +1565,16 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <div class="metrics" id="metrics">
   <div class="metrics-inner">
     <div class="metric-item">
+      <div class="metric-num">1억+</div>
+      <div class="metric-label">담당 숏폼 누적 조회수<br>유튜브·인스타그램 100편 이상 (2024.07–2026.03)</div>
+    </div>
+    <div class="metric-item">
       <div class="metric-num">435만</div>
-      <div class="metric-label">밈을 IP 문법으로 재조립한 숏폼<br>기준선 30만의 14배, 좋아요 15만</div>
+      <div class="metric-label">단일 릴스 최고 조회수<br>기준선 30만의 14배, 좋아요 15만</div>
     </div>
     <div class="metric-item">
       <div class="metric-num">CTR 6.0%</div>
       <div class="metric-label">썸네일 A/B 검증으로 5.7% → 6.0%<br>같은 기간 구독자 약 12% 성장</div>
-    </div>
-    <div class="metric-item">
-      <div class="metric-num">100편+</div>
-      <div class="metric-label">두 채널 주 4편을 8개월간 운영<br>시청 지속률 69% → 72.8%</div>
     </div>
   </div>
 </div>
@@ -2507,7 +2507,7 @@ if (ctaSection) {
 }
 
 /* ── 지표 카운트업 (보이면 실행, 완전히 사라지면 리셋) ── */
-const metricTargets = ['435만', 'CTR 6.0%', '100편+'];
+const metricTargets = ['1억+', '435만', 'CTR 6.0%'];
 const metricItems = document.querySelectorAll('.metric-item');
 let metricsAnimated = false;
 let metricRafIds = [];
@@ -2530,9 +2530,12 @@ function animateMetrics() {
     const draw = now => {
       const t = Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
-      if (index === 0) el.textContent = `${(435 * eased).toFixed(0)}만`;
-      if (index === 1) el.textContent = `CTR ${(6.0 * eased).toFixed(1)}%`;
-      if (index === 2) el.textContent = `${Math.round(100 * eased)}편+`;
+      if (index === 0) {
+        const v = Math.round(10000 * eased);
+        el.textContent = v >= 10000 ? '1억+' : `${v.toLocaleString()}만`;
+      }
+      if (index === 1) el.textContent = `${(435 * eased).toFixed(0)}만`;
+      if (index === 2) el.textContent = `CTR ${(6.0 * eased).toFixed(1)}%`;
       if (t < 1) metricRafIds.push(requestAnimationFrame(draw)); else el.textContent = target;
     };
     metricRafIds.push(requestAnimationFrame(draw));
