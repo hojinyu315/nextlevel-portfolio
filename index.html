@@ -42,17 +42,17 @@
       --radius-md: 16px;
 
       /* 스크롤 진행에 따라 JS가 갱신: 퍼플 → 핑크 → 흰색 (벙커키즈 히어로 그라데이션) */
-      --scroll-bg: #0E0E0E;
-      --dyn-fg: #FFFFFF;
-      --dyn-fg-dim: rgba(255,255,255,0.74);
-      --dyn-line: rgba(255,255,255,0.14);
+      --scroll-bg: #FFFFFF;
+      --dyn-fg: #111111;
+      --dyn-fg-dim: rgba(17,17,17,0.62);
+      --dyn-line: rgba(17,17,17,0.14);
     }
 
     /* 스크롤 배경 레이어 (hero~metrics 구간) */
     #scroll-bg {
       position: fixed;
       inset: 0;
-      background: linear-gradient(118deg, #0B0B0B 0%, #191710 30%, #3B3310 62%, #6E5C06 100%);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF2 56%, #FFF8DC 100%);
       overflow: hidden;
       z-index: -1;
       pointer-events: none;
@@ -67,17 +67,17 @@
     /* 각 원이 서로 다른 궤도를 아주 느리게 한 바퀴 돈다 (0%=100%라 끊김 없이 순환) */
     .orb-1 {
       width: 34vw; height: 34vw; left: -16vw; top: -17vw;
-      background: rgba(252,212,4,0.16);
+      background: #FFEF9E;
       animation: orb-roam-a 68s linear infinite;
     }
     .orb-2 {
       width: 29vw; height: 29vw; right: -14vw; bottom: -15vw;
-      background: rgba(255,255,255,0.055);
+      background: #FFF6C9;
       animation: orb-roam-b 86s linear infinite;
     }
     .orb-5 {
       width: 10vw; height: 10vw; right: 28vw; top: -5vw;
-      background: rgba(252,212,4,0.10);
+      background: #FFE766;
       animation: orb-roam-e 58s linear infinite;
     }
     @keyframes orb-roam-a {
@@ -152,7 +152,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.85);
       -webkit-backdrop-filter: saturate(160%) blur(14px);
       backdrop-filter: saturate(160%) blur(14px);
       transition: background 0.35s ease;
@@ -193,8 +193,8 @@
       transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     }
 
-    nav ul a:hover { color: var(--dyn-fg); border-color: var(--dyn-line); }
-    nav ul a.active { color: var(--dyn-fg); border-color: var(--dyn-fg); }
+    nav ul a:hover { color: #111; background: #FFF1A8; border-color: transparent; }
+    nav ul a.active { color: #111; background: #FCD404; border-color: transparent; }
 
     html.fg-dark nav { background: rgba(255, 255, 255, 0.86); border-bottom: 1px solid #EEE; }
 
@@ -710,16 +710,16 @@
     .tag {
       font-size: 12px;
       font-weight: 500;
-      color: var(--navy);
-      background: transparent;
-      border: 1.4px solid var(--navy);
+      color: #111111;
+      background: #FFF1A8;
+      border: 1.4px solid transparent;
       padding: 6px 16px;
       border-radius: 999px;
       line-height: 1.3;
       white-space: nowrap;
       transition: background 0.25s ease, color 0.25s ease;
     }
-    .tag:hover { background: var(--navy); color: #fff; }
+    .tag:hover { background: #FCD404; color: #111; }
 
     /* ── PROJECTS ── */
     #projects { background: var(--white); border-bottom: 1px solid var(--border); }
@@ -1263,11 +1263,11 @@
     .hero-title { color: var(--dyn-fg); }
     .hero-checks li { color: var(--dyn-fg-dim); }
     .hero-checks li strong { color: var(--dyn-fg); }
-    .hero-checks li::before { color: #FCD404; }
+    .hero-checks li::before { color: #111111; }
     .hero-divider { background: #FFFFFF; }
-    html.fg-dark .hero-checks li::before { color: #FCD404; }
+    html.fg-dark .hero-checks li::before { color: #111111; }
     html.fg-dark .hero-divider { background: var(--accent); }
-    html.fg-dark .hero-checks li::before { color: #FCD404; }
+    html.fg-dark .hero-checks li::before { color: #111111; }
     html.fg-dark .hero-divider { background: var(--accent); }
 
     .metric-item { border-left-color: var(--dyn-line); }
@@ -1297,7 +1297,7 @@
     .sec-dark .career-role { color: var(--white); }
     .sec-dark .career-bullets li { color: var(--on-dark); }
     .sec-dark .career-bullets li strong { color: var(--white); }
-    .sec-dark .tag { background: transparent; color: var(--navy); border-color: var(--navy); }
+    .sec-dark .tag { background: #FFF1A8; color: #111111; border-color: transparent; }
 
     .sec-dark .activity-card { background: var(--card-bg); border-color: var(--on-dark-line); border-top-color: var(--accent); }
     .sec-dark .activity-name { color: var(--white); }
@@ -1546,7 +1546,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     </div>
     <div class="hero-text">
       <div class="hero-brand">
-        <img class="hero-logo" src="nl_logo_white.png" alt="NEXT LEVEL Studio">
+        <img class="hero-logo" src="nl_logo.png" alt="NEXT LEVEL Studio">
         <span class="hero-pill">콘텐츠 마케터 지원</span>
       </div>
       <h1 class="hero-title">웹툰 IP로 새 채널을 열고,<br>숏폼으로 키워왔습니다.</h1>
@@ -2332,7 +2332,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     /* 기준 = 사이드바 세 번째(노션) 아이콘 아래쪽이 흰 구간 상단선에 닿는 순간 */
     var boundary = target.getBoundingClientRect().top;
     var iconBottom = ytIcon ? ytIcon.getBoundingClientRect().bottom : window.innerHeight * 0.5;
-    root.classList.toggle('fg-dark', boundary <= iconBottom);
+    root.classList.add('fg-dark');   // 배경이 항상 흰색이므로 어두운 글자 고정
   }
 
   function onScroll() {
